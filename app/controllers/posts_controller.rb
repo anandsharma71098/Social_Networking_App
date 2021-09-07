@@ -21,7 +21,7 @@ class PostsController < ApplicationController
             flash[:notice]="Post Successfully Created"
             redirect_to post_path(@post)
         else
-            flash[:alert]="Fill correct details"
+            flash.now[:alert]="Fill correct details"
             render 'new'
         end
     end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
             flash[:notice]="Post was updated successfully"
             redirect_to post_path(@post)
         else
-            flash[:alert]="Fill correct details"
+            flash.now[:alert]="Fill correct details"
             render 'edit'
         end
     end

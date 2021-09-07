@@ -1,8 +1,18 @@
-<h1>Show Page </h1>
+<div class="container mt-4">
+<div class="card">
+  <div class="card-header text-center">
+    By Anand Sharma
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-center"><%= @post.title %></h5>
+    <p class="card-text"><%= simple_format(@post.description) %></p>
+    <%= link_to 'Comment', '#',class:"btn btn-outline-primary" %>
+  </div>
+  <div class="card-footer text-muted text-center">
+    Created on:- <%=@post.created_at.to_date.strftime('%d-%m-%Y')%>
+  </div>
+</div>
 
-<p> Title: <%= @post.title %> </p>
-<p> Description: <%= @post.description %> </p>
-
-<%=link_to 'Edit',edit_post_path(@post) %> | 
-<%= link_to 'Delete',post_path(@post),method: :delete, data: {confirm:"Are you sure?"} %> | 
 <%=link_to 'Return to Post listing page',posts_path %>
+<h3><b>Comments:-</b></h3>
+</div>
