@@ -24,8 +24,11 @@
             </div>
             <div class="mt-4">
             <%= link_to 'View',post_path(post),class:"btn btn-outline-success"%>
-            <%= link_to 'Edit',edit_post_path(post),class:"btn btn-outline-primary" %>
-            <%= link_to 'Delete',post_path(post),class:"btn btn-outline-danger",method: :delete, data: {confirm:"Are you sure?"} %>
+
+            <% if post.user==current_user %>
+              <%= link_to 'Edit',edit_post_path(post),class:"btn btn-outline-primary" %>
+              <%= link_to 'Delete',post_path(post),class:"btn btn-outline-danger",method: :delete, data: {confirm:"Are you sure?"} %>
+            <% end %>  
             </div>
       </div>
     </div>

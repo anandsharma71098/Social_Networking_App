@@ -1,15 +1,15 @@
 <div class="container mt-4">
 <div class="card">
-  <div class="card-header text-center">
-    By Anand Sharma
+  <div class="card-header text-center text-primary">
+     by <%= @post.user.email.split("@")[0] %>
   </div>
   <div class="card-body">
-    <h5 class="card-title text-center"><%= @post.title %></h5>
+    <h5 class="card-title text-center"><u><%= @post.title %></u></h5>
     <p class="card-text"><%= simple_format(@post.description) %></p>
     <%= link_to 'Comment', '#',class:"btn btn-outline-primary" %>
   </div>
   <div class="card-footer text-muted text-center">
-    Created on:- <%=@post.created_at.to_date.strftime('%d-%m-%Y')%>
+    Created on: <%=@post.created_at.to_date.strftime('%d-%m-%Y')%>
   </div>
 </div>
 

@@ -1,6 +1,8 @@
 <div class="container" id="home-container" >
     <div class="jumbotron text-center text-white">
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <a class="btn btn-outline-success btn-lg" href="#" role="button">Sign up</a>
+    <% if !user_signed_in? %>
+        <%= link_to 'Sign up',new_user_registration_path, class:"btn btn-outline-success btn-lg" %>
+    <% end %>
     </div>
 </div>

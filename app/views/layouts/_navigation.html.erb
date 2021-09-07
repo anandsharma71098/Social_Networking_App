@@ -7,26 +7,40 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to 'Posts',posts_path,class:"nav-link" %>
+        <%= link_to 'About',about_path,class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+      
+      <% if !user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sign Up',new_user_registration_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign In',new_user_session_path,class:"nav-link" %>
+        </li>
+      <% end %> 
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Post
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'All Posts', posts_path,class:"dropdown-item" %>
-          <%= link_to 'Create new Post', new_post_path,class:"dropdown-item" %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <% if user_signed_in? %>
+            <%= link_to 'Create new Post', new_post_path,class:"dropdown-item" %>
+          <% end %>  
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+    <% if user_signed_in? %>
+    <div class="nav-item dropdown my-2 my-lg-0">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.email.split("@")[0].upcase %>
+        </a>
+        <div class="dropdown-menu my-2 my-lg-0" aria-labelledby="navbarDropdown">
+          <%= link_to 'Edit Profile',edit_user_registration_path,class:"dropdown-item" %>
+          <%= link_to 'Sign Out',destroy_user_session_path,method: :delete,class:"dropdown-item" %>
+      </div>
+    <% end %>  
+    
   </div>
 </nav>
