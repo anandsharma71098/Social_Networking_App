@@ -6,13 +6,29 @@
   <div class="card-body">
     <h5 class="card-title text-center"><u><%= @post.title %></u></h5>
     <p class="card-text"><%= simple_format(@post.description) %></p>
-    <%= link_to 'Comment', '#',class:"btn btn-outline-primary" %>
+    <% if user_signed_in? && @post.user!=current_user %>
+      <%= link_to 'Comment', new_comment_path(:param1 => @post.id),class:"btn btn-outline-primary" %>
+    <% end %>  
   </div>
   <div class="card-footer text-muted text-center">
     Created on: <%=@post.created_at.to_date.strftime('%d-%m-%Y')%>
   </div>
 </div>
 
-<%=link_to 'Return to Post listing page',posts_path %>
+<br/>
 <h3><b>Comments:-</b></h3>
+<% if @comments.count==0 %>
+    <p class="text-center">No Comments Yet</p>
+<% else %>    
+  <% @comments.each do |comment| %>
+    <div class="card mt-4">
+    <div class="card-header">
+      By XYZ
+    </div>
+    <div class="card-body">
+      <%= comment.data %>
+    </div>
+  </div>
+  <% end %>  
+<% end %>  
 </div>
