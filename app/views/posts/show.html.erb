@@ -23,7 +23,7 @@
   <% @comments.each do |comment| %>
     <div class="card mt-4">
     <div class="card-header">
-      By XYZ
+      by <%= comment.user.email.split("@")[0].capitalize %>
     </div>
     <div class="card-body">
       <%= comment.data %>
