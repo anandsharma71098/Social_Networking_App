@@ -4,6 +4,7 @@
 <div class="container">
 
 <% @posts.each do|post| %>
+  <% if !post.private? || post.user==current_user %>
     <div class="row justify-content-md-center">
     <div class="col-8 ">
 <div id="accordion">
@@ -22,8 +23,13 @@
             <div class="font-italic">
                <%= post.description %>
             </div>
-            <div class="font-italic">
-                Comments: <%= post.comments.count %>
+            <div class="font-italic mt-2">
+                <button type="button" class="btn btn-primary">
+                Comments <span class="badge badge-light"><%= post.comments.count %></span>
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Likes <span class="badge badge-light">9</span>
+                </button>
             </div>
             <div class="mt-4">
               <%= link_to 'View',post_path(post),class:"btn btn-outline-success"%>
@@ -39,6 +45,7 @@
   </div>
   </div>
   </div>
+  <% end %>
 <% end %>
 </div>
 </div>
