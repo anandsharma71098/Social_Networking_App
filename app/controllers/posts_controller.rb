@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     def show
         #byebug
         #@post=Post.find(params[:id])
+        @comments= @post.comments.order('comments.created_at DESC')
     end
 
     def index
