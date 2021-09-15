@@ -31,6 +31,9 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
+           <%= link_to 'Users', users_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
           <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
             <input class="form-control mr-sm-2" type="search" placeholder="search any user" aria-label="Search" name="query">
             <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
