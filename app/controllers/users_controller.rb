@@ -12,5 +12,6 @@ class UsersController < ApplicationController
     def search
         @query=params[:query]
         @users=User.where("email LIKE ?",["%#{@query}%"])
+        @users= @users.order('users.created_at DESC')
     end
 end

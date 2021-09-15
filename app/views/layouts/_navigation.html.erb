@@ -39,6 +39,10 @@
             <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
           </form>
         </li>  
+
+        <li class="nav-item">
+            <%= link_to 'Friend Requests '+(current_user.posts.count).to_s,users_path, class:"nav-link" %>
+        </li>
       <% end %>
     </ul>
 

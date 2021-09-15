@@ -12,9 +12,4 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// const user_btn=document.getElementById("user_btn");
-
-// user_btn.addEventListener('click',function(e){
-//     user_btn.innerText('Ashish');
-//     e.preventDefault();
-// });
+//require('./needed-functions/sendFriend')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_11_055909) do
+ActiveRecord::Schema.define(version: 2021_09_15_104236) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 2021_09_11_055909) do
     t.integer "post_id"
     t.integer "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "requestor_id"
+    t.integer "receiver_id"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "receiver_id"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
