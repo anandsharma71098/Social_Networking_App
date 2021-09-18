@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
 
     def create
         #byebug
-        @friend=Friend.new(comment_params)
+        @friend=Friend.new(friend_params)
         if @friend.save
             flash[:notice]="Friend Request Sent Successfully"
             redirect_to user_path(@friend.user_id)
@@ -16,7 +16,21 @@ class FriendsController < ApplicationController
         end
     end
 
-    def comment_params
+    def show
+        @friend=Friend.find(params[:id])
+    end
+
+    def index
+        @friends=current_user.friends
+    end
+
+    def destroy
+        @friend=Friend.find(params[:id])
+        @friend.destroy
+        redirect_to friends_path
+    end
+
+    def friend_params
         params.require(:friend).permit(:user_id,:receiver_id,:status)
     end
 end

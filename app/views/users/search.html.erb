@@ -1,6 +1,9 @@
 <div id="page-content">
 <h1 class="text-center mt-4">Search Results</h1>
 <div class="container">
+<% if @users.count==0 %>
+    <br/><br/><br/><br/><h3 class="row justify-content-md-center"> No result found! <h3>
+<% else %>
 <% @users.each do |user| %>
     <div class="row justify-content-md-center">
         <div class="col-8 mt-4">
@@ -26,5 +29,6 @@
         </div>
     </div>
 <% end %>
+<% end %>   
 </div>
 </div>
