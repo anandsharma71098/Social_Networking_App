@@ -13,3 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 //require('./needed-functions/sendFriend')
+console.log('Hello from application.js')

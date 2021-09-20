@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:new,:create]
   resources :users, only: [:index,:show]
   resources :friends
+  resources :companions
   get 'search', to:'users#search'
 end

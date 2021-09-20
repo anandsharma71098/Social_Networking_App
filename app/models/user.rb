@@ -20,4 +20,6 @@ class User < ApplicationRecord
   #has_many :friend_requests_as_receiver, foreign_key: :receiver_id, class_name: :FriendRequest
   #has_many :friend_requests
   has_many :friends
+  has_many :companions
+
 end

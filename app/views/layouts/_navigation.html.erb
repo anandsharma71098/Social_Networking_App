@@ -53,6 +53,7 @@
         </a>
         <div class="dropdown-menu my-2 my-lg-0" aria-labelledby="navbarDropdown">
           <%= link_to 'Edit Profile',edit_user_registration_path,class:"dropdown-item" %>
+          <%= link_to 'Friends '+(current_user.companions.count).to_s, companions_path, class:"dropdown-item" %> 
           <%= link_to 'Sign Out',destroy_user_session_path,method: :delete,class:"dropdown-item" %>
       </div>
     <% end %>  
